@@ -200,7 +200,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -245,6 +247,20 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainShop\DomainShop.csproj">
+      <Project>{d278c0ab-65e7-4c10-bdc4-c6b455d7ae2d}</Project>
+      <Name>DomainShop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryShop\RepositoryShop.csproj">
+      <Project>{a04b0342-90fd-4014-b489-f5e8f4dc6c68}</Project>
+      <Name>RepositoryShop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServicesShop\ServicesShop.csproj">
+      <Project>{3969dbd1-de2d-41bc-8793-7d3f4aa31a40}</Project>
+      <Name>ServicesShop</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

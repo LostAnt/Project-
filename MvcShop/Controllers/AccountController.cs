@@ -5,10 +5,12 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using DomainShop;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MvcShop.Models;
+using RepositoryShop.Contexts;
 
 namespace MvcShop.Controllers
 {
@@ -58,6 +60,10 @@ namespace MvcShop.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            PropertyContext propertyContext = new PropertyContext();
+            Property property = new Property();;
+            propertyContext.Properties.Add(property);
+            propertyContext.SaveChanges();
             return View();
         }
 

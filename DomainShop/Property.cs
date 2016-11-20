@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,8 @@ namespace DomainShop
 {
     public class Property
     {
-        public long Id;
+        [Key]
+        public long PropertyId { get; set; }
         public int Bedrooms { get; set; }
         public int Bathrooms { get; set; }
         public double LivArea { get; set; }

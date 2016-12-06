@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using DomainShop;
 using RepositoryShop.Contexts;
+using RepositoryShop.IRepositories;
 
 namespace RepositoryShop
 {
-    public class SQLPropertyRepository : IRepository<Property>
+    public class SqlPropertyRepository : IPropertyRepository
     {
-        private PropertyContext _db;
-
-        public SQLPropertyRepository()
-        {
-            _db = new PropertyContext();
-        }
+        private readonly PropertyContext _db;
 
         private bool _disposed = false;
+
+        public SqlPropertyRepository(PropertyContext context)
+        {
+            _db = context;
+        }
 
         public virtual void Dispose(bool disposing)
         {

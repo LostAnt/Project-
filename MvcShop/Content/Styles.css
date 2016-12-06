@@ -1,0 +1,126 @@
+﻿a {
+    text-decoration: none;
+}
+
+header {
+    background-color: white;
+    color: black;
+    min-height: 50px;
+    margin: 0;
+    padding-top: 15px;
+    border: 1px solid transparent;
+    font-family: "helvetica", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    margin: auto;
+    padding: 0;
+}
+
+    footer p {
+        margin: 0;
+        padding: 0;
+        float: right;
+    }
+
+header a {
+    color: black;
+}
+
+    header a:hover {
+        color: red;
+    }
+
+header li :hover {
+    border-bottom: 3px solid red;
+}
+
+.navbar-list {
+    list-style: none;
+    float: left;
+    margin: 0;
+}
+
+.navbar-right-list {
+    list-style: none;
+    float: right;
+}
+
+.navbar-list li {
+    display: inline;
+}
+
+    .navbar-list li a {
+        padding: 10px;
+    }
+
+.navbar-brand {
+    float: left;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 0;
+}
+
+.navbar-header {
+}
+
+.home-block1 {
+    background: url(Images/1.bmp) no-repeat center center;
+    background-size: 100% 100%;
+    width: auto;
+    height: 1000px;
+    z-index: -1;
+}
+
+.home-block1-text {
+    font-size: 48px;
+    color: aliceblue;
+}
+
+.rights-text {
+    font-family: sans-serif;
+    padding-bottom: 15px;
+    margin: 15px;
+}
+
+.block1-main-info {
+    position: absolute;
+    left: 35%;
+    top: 35%;
+    z-index: 1000;
+}
+
+.home-block1-search {
+    width: 32em;
+    height: 3em;
+    font-family: sans-serif;
+    font-size: 1em;
+    opacity: 0.9;
+    margin: 0;
+    padding: 0;
+}
+
+.block1-search-block {
+    display: inline;
+}
+
+.block1-search-button {
+    width: 4em;
+    height: 3em;
+    opacity: 0.9;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    font-family: sans-serif;
+}
+
+#wrapper {
+    max-width: 1200px;
+    margin: auto;
+}
+

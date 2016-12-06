@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DomainShop;
+using RepositoryShop.IRepositories;
 
 namespace MvcShop.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private readonly IPersonRepository _personRepository;
+
+        public HomeController(IPersonRepository repository)
+        {
+            _personRepository = repository;
+        }
+
+
+        public ActionResult Home()
         {
             return View();
         }
@@ -23,6 +33,12 @@ namespace MvcShop.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Search()
+        {
 
             return View();
         }

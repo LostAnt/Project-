@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using DomainShop;
 using RepositoryShop.Contexts;
+using RepositoryShop.IRepositories;
 
 namespace RepositoryShop
 {
-    public class SQLPurchaseRepository : IRepository<Purchase>
+    public class SqlPurchaseRepository : IPurchaseRepository
     {
 
-        private PurchaseContext _db;
+        private readonly PurchaseContext _db;
 
         private bool _disposed = false;
+
+        public SqlPurchaseRepository(PurchaseContext context)
+        {
+            _db = context;
+        }
 
         public virtual void Dispose(bool disposing)
         {

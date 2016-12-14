@@ -120,7 +120,113 @@ header li :hover {
 }
 
 #wrapper {
-    max-width: 1200px;
+    max-width: 1650px;
     margin: auto;
 }
 
+.search-filters {
+    background-color: red;
+    font-family: Effra-Regular,sans-serif;
+    color: #53535F;
+    margin-bottom: 50px; 
+}
+
+.search-filters-form * {
+    display: inline-block;
+}
+
+.search-filters-input {
+    padding: 10px;
+    padding-right: 30px;
+}
+
+    .search-filters-input input {
+        width: 100%;
+        padding: 5px;
+        border-radius: 3px;
+        font-size: 20px;
+        border-width: 0;
+        padding: 10px;
+    }
+
+.price-filter-bar {
+    padding: 10px;
+    border-right: #A60000;
+    border-right-style: solid;
+    border-right-width: 1px;
+    font-size: 20px;
+}
+
+
+    .price-filter-bar select option {
+        display: block;
+        font-size: 15px;
+        padding: 5px;
+    }
+
+.price-filter-bar-type {
+    padding: 10px;
+}
+
+.price-filter-bar p {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.search-results{
+    max-width: 1650px;
+    margin: auto;
+}
+
+.property-desc-block {
+    margin-bottom: 50px;
+}
+
+.property-desc-block-image {
+    color: #fff;
+    height: 176px;
+}
+
+    .property-desc-block-image img {
+        height: 100%;
+        width: 100%;
+    }
+
+.property-desc-block-description-props {
+    display: inline-block;
+    padding: 7px;
+    padding-bottom: 0;
+    font-family: Effra-Regular, sans-serif;
+    background-color: white;
+    box-shadow: 0 3px 3px #575555 inset;
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+
+    .property-desc-block-description-props p {
+        margin: 4px;
+        font-family: Effra-Regular, sans-serif;
+    }
+
+.property-desc-block-description {
+    display: inline-block;
+    padding: 7px;
+    padding-bottom: 0;
+    font-family: Effra-Regular, sans-serif;
+    background-color: white;
+    box-shadow: 0 3px 3px #575555 inset;
+    height: 200px;
+    width: 49%;
+    white-space: pre-line;
+}
+
+.property-desc-block-price {
+    padding-left: 10px;
+    font-family: Effra-Regular, sans-serif;
+}
+
+#wrapper {
+    max-width: 1650px;
+    margin: auto;
+}

@@ -4,6 +4,7 @@ using Microsoft.Practices.Unity.Configuration;
 using RepositoryShop;
 using RepositoryShop.Contexts;
 using RepositoryShop.IRepositories;
+using ServicesShop;
 
 namespace MvcShop.App_Start
 {
@@ -43,6 +44,7 @@ namespace MvcShop.App_Start
             container.RegisterType<IPersonRepository, SqlPersonRepository>();
             container.RegisterType<IPropertyRepository, SqlPropertyRepository>();
             container.RegisterType<IPurchaseRepository, SqlPurchaseRepository>();
+            container.RegisterType<ISearchService, SearchService>();
             container.RegisterType<PersonContext>(new HierarchicalLifetimeManager());
             container.RegisterType<PurchaseContext>(new HierarchicalLifetimeManager());
             container.RegisterType<PropertyContext>(new HierarchicalLifetimeManager());

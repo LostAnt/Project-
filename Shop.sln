@@ -8,8 +8,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainShop", "DomainShop\DomainShop.csproj", "{D278C0AB-65E7-4C10-BDC4-C6B455D7AE2D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicesShop", "ServicesShop\ServicesShop.csproj", "{3969DBD1-DE2D-41BC-8793-7D3F4AA31A40}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A04B0342-90FD-4014-B489-F5E8F4DC6C68} = {A04B0342-90FD-4014-B489-F5E8F4DC6C68}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryShop", "RepositoryShop\RepositoryShop.csproj", "{A04B0342-90FD-4014-B489-F5E8F4DC6C68}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02E81B59-C9F3-46B7-BD20-0CDFBCC533EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

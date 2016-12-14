@@ -85,12 +85,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ISearchService.cs" />
+    <Compile Include="SearchService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainShop\DomainShop.csproj">
+      <Project>{d278c0ab-65e7-4c10-bdc4-c6b455d7ae2d}</Project>
+      <Name>DomainShop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryShop\RepositoryShop.csproj">
+      <Project>{a04b0342-90fd-4014-b489-f5e8f4dc6c68}</Project>
+      <Name>RepositoryShop</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

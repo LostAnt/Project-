@@ -7,7 +7,11 @@
             <p> Discover Your Perfect Home </p>
         </div>
         <div class="block1-search-block">
-
+            @using (Html.BeginForm("Search", "Home"))
+            {
+                <input type="text" name="city"/>
+                <input type="submit"/>
+            }
         </div>
     </div>
 </div>

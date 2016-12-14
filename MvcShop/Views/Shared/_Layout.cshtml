@@ -8,10 +8,11 @@
     @Styles.Render("~/Content/Styles.css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/Scripts/jquery-3.1.1.min.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
 
 </head>
 <body>
-    <header  id="wrapper">
+    <header id="wrapper">
         <div class="">
             <div class="navbar-header">
                 @Html.ActionLink("Realtor.com", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })

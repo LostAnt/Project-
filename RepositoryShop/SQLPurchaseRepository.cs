@@ -7,14 +7,14 @@ using RepositoryShop.IRepositories;
 
 namespace RepositoryShop
 {
-    public class SqlPurchaseRepository : IPurchaseRepository
+    public class SqlPurchaseRepository : IRepository<Purchase>
     {
 
-        private readonly PurchaseContext _db;
+        private readonly dbcontext _db;
 
         private bool _disposed = false;
 
-        public SqlPurchaseRepository(PurchaseContext context)
+        public SqlPurchaseRepository(dbcontext context)
         {
             _db = context;
         }

@@ -17,9 +17,10 @@ namespace MvcShop.Controllers
             _personRepository = repository;
         }
 
-
         public ActionResult Home()
         {
+            if (User.Identity.IsAuthenticated)
+                return View(new { Name = User.Identity.Name });
             return View();
         }
 

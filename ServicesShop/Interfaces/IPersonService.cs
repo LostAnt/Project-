@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RepositoryShop.IRepositories
+namespace ServicesShop.Interfaces
 {
-   public interface IPersonRepository
+   public interface IPersonService
     {
         IEnumerable<Person> GetItemList();
         Person GetItem(string id);

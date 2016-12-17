@@ -29,5 +29,9 @@ namespace MvcShop.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<DomainShop.Property> Properties { get; set; }
+
+        public System.Data.Entity.DbSet<DomainShop.Person> People { get; set; }
     }
 }

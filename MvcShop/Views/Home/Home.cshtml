@@ -1,11 +1,14 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+
 }
 <div class="home-block1">
     <div class="block1-main-info">
         <div class="home-block1-text">
-            <p> Discover Your Perfect Home </p>
-        </div>
+            <p> Discover Your Perfect Home </p>            
+            @Html.ActionLink("Create", "Create", "Admin")
+            @Html.ActionLink("Index", "Index", "Admin")
+          </div>
         <div class="block1-search-block">
 
         </div>

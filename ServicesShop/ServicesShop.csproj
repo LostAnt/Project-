@@ -105,18 +105,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="DTO_Person.cs" />
-    <Compile Include="DTO_Property.cs" />
-    <Compile Include="DTO_Purchase.cs" />
-    <Compile Include="Interfaces\IPropertyService.cs" />
+    <Compile Include="Interfaces\IHash.cs" />
+    <Compile Include="Interfaces\IPersonService.cs" />
+    <Compile Include="Interfaces\IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Hash.cs" />
+    <Compile Include="Service\PersonService.cs" />
+    <Compile Include="Service\PropertyService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DomainShop\DomainShop.csproj">
+      <Project>{D278C0AB-65E7-4C10-BDC4-C6B455D7AE2D}</Project>
+      <Name>DomainShop</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RepositoryShop\RepositoryShop.csproj">
       <Project>{A04B0342-90FD-4014-B489-F5E8F4DC6C68}</Project>
       <Name>RepositoryShop</Name>

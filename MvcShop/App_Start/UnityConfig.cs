@@ -1,9 +1,13 @@
 using System;
+using DomainShop;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using MvcShop.Models;
 using RepositoryShop;
 using RepositoryShop.Contexts;
 using RepositoryShop.IRepositories;
+using ServicesShop.Interfaces;
+using ServicesShop.Service;
 
 namespace MvcShop.App_Start
 {
@@ -39,13 +43,16 @@ namespace MvcShop.App_Start
             // container.LoadConfiguration();
 
             // TODO: Register your types here
-            // container.RegisterType<IProductRepository, ProductRepository>();
+             container.RegisterType<IHash, Hash>();
             container.RegisterType<IPersonRepository, SqlPersonRepository>();
-            container.RegisterType<IPropertyRepository, SqlPropertyRepository>();
-            container.RegisterType<IPurchaseRepository, SqlPurchaseRepository>();
-            container.RegisterType<PersonContext>(new HierarchicalLifetimeManager());
-            container.RegisterType<PurchaseContext>(new HierarchicalLifetimeManager());
-            container.RegisterType<PropertyContext>(new HierarchicalLifetimeManager());
+            container.RegisterType<IRepository<Property>, SqlPropertyRepository>();
+            container.RegisterType<IRepository<Purchase>, SqlPurchaseRepository>();
+            container.RegisterType<IService<Property>, PropertyService>();
+            container.RegisterType<IPersonService, PersonService>();
+            container.RegisterType<dbcontext>(new HierarchicalLifetimeManager());
+         //   container.RegisterType<PersonContext>(new HierarchicalLifetimeManager());
+           // container.RegisterType<PurchaseContext>(new HierarchicalLifetimeManager());
+            //container.RegisterType<PropertyContext>(new HierarchicalLifetimeManager());
         }
     }
 }

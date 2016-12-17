@@ -7,16 +7,18 @@ using RepositoryShop.IRepositories;
 
 namespace RepositoryShop
 {
-    public class SqlPropertyRepository : IPropertyRepository
+    public class SqlPropertyRepository : IRepository<Property>
     {
-        private readonly PropertyContext _db;
+        private readonly dbcontext _db;
 
         private bool _disposed = false;
 
-        public SqlPropertyRepository(PropertyContext context)
+        public SqlPropertyRepository(dbcontext context)
         {
-            _db = context;
+           _db = context;
         }
+
+        
 
         public virtual void Dispose(bool disposing)
         {
@@ -48,6 +50,7 @@ namespace RepositoryShop
         public void Create(Property item)
         {
             _db.Properties.Add(item);
+            _db.SaveChanges();
         }
 
         public void Delete(int id)
@@ -56,12 +59,18 @@ namespace RepositoryShop
             if (property != null)
             {
                 _db.Properties.Remove(property);
+                _db.SaveChanges();
             }
         }
 
         public void Update(Property item)
         {
-            _db.Entry(item).State = EntityState.Modified;
+          //  long id =item.PropertyId;
+         //   Property property = _db.Properties.Find(id);
+            _db.Properties.Remove(item);
+            _db.Properties.Add(item);
+           //  _db.Entry(item).State = EntityState.Modified; 
+            _db.SaveChanges();
         }
 
         public void Save()

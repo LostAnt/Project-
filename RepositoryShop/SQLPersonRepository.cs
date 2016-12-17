@@ -10,15 +10,15 @@ namespace RepositoryShop
     public class SqlPersonRepository : IPersonRepository
     {
 
-        private readonly PersonContext _db;
+        private readonly dbcontext _db;
 
         private bool _disposed = false;
 
-        public SqlPersonRepository(PersonContext context)
+        public SqlPersonRepository(dbcontext context)
         {
             _db = context;
         }
-        
+
         public virtual void Dispose(bool disposing)
         {
             if (!this._disposed)
@@ -41,28 +41,51 @@ namespace RepositoryShop
             return _db.Persons;
         }
 
-        public Person GetItem(int id)
+        public Person GetItem(string id)
         {
-            return _db.Persons.Find(id);
+            // if (_db.Persons.Find(id) == null) return null;
+            foreach (var s in _db.Persons)
+                if (s.Login == id || s.Email == id)
+                    return s;
+            
+                return GetItem(Convert.ToInt64(id));            
+        }
+
+        public Person GetItem(long id)
+        {
+            // if (_db.Persons.Find(id) == null) return null;
+            foreach (var s in _db.Persons)
+                if (s.Id == id)
+                    return s;
+
+
+            return null;
         }
 
         public void Create(Person item)
         {
             _db.Persons.Add(item);
+            _db.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(long id)
+        { 
+                _db.Persons.Remove(GetItem(id));
+                _db.SaveChanges();
+        }
+
+        public void Delete(string id)
         {
-            Person person = _db.Persons.Find(id);
-            if (person != null)
-            {
-                _db.Persons.Remove(person);
-            }
+            _db.Persons.Remove(GetItem(id));
+            _db.SaveChanges();
         }
 
         public void Update(Person item)
         {
-            _db.Entry(item).State = EntityState.Modified;
+            //   _db.Entry(item).State = EntityState.Modified;
+            Delete(item.Id);
+            Create(item);
+            _db.SaveChanges();
         }
 
         public void Save()

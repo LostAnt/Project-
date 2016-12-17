@@ -7,7 +7,7 @@ namespace MvcShop.Models
 {
     public class PropertyModels
     {
-        public long PropertyId { get; }
+        public long PropertyId { get; set; }
         public int Bedrooms { get; set; }
         public int Bathrooms { get; set; }
         public double LivArea { get; set; }

@@ -106,13 +106,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contexts\PersonContext.cs" />
-    <Compile Include="Contexts\PropertyContext.cs" />
+    <Compile Include="Contexts\dbcontext.cs" />
     <Compile Include="IRepositories\IPersonRepository.cs" />
-    <Compile Include="IRepositories\IPropertyRepository.cs" />
-    <Compile Include="IRepositories\IPurchaseRepository.cs" />
+    <Compile Include="IRepositories\IRepository.cs" />
+    <Compile Include="Migrations\201612141139310_InitialCreate.cs" />
+    <Compile Include="Migrations\201612141139310_InitialCreate.Designer.cs">
+      <DependentUpon>201612141139310_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612161132065_dopInfo.cs" />
+    <Compile Include="Migrations\201612161132065_dopInfo.Designer.cs">
+      <DependentUpon>201612161132065_dopInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Contexts\PurchaseContext.cs" />
     <Compile Include="SQLPersonRepository.cs" />
     <Compile Include="SQLPropertyRepository.cs" />
     <Compile Include="SQLPurchaseRepository.cs" />
@@ -129,6 +135,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Start\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612141139310_InitialCreate.resx">
+      <DependentUpon>201612141139310_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612161132065_dopInfo.resx">
+      <DependentUpon>201612161132065_dopInfo.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,6 +8,7 @@ using RepositoryShop.Contexts;
 using RepositoryShop.IRepositories;
 using ServicesShop.Interfaces;
 using ServicesShop.Service;
+using ServicesShop;
 
 namespace MvcShop.App_Start
 {
@@ -49,6 +50,7 @@ namespace MvcShop.App_Start
             container.RegisterType<IRepository<Purchase>, SqlPurchaseRepository>();
             container.RegisterType<IService<Property>, PropertyService>();
             container.RegisterType<IPersonService, PersonService>();
+            container.RegisterType<ISearchService, SearchService>();
             container.RegisterType<dbcontext>(new HierarchicalLifetimeManager());
          //   container.RegisterType<PersonContext>(new HierarchicalLifetimeManager());
            // container.RegisterType<PurchaseContext>(new HierarchicalLifetimeManager());

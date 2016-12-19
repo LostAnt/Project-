@@ -23,7 +23,7 @@ namespace MvcShop.Controllers
         // GET: Person
         public ActionResult Index()
         {
-            if ((PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             return View(PS.GetItemList());
         }
 
@@ -45,7 +45,7 @@ namespace MvcShop.Controllers
         // GET: Person/Create
         public ActionResult Create()
         {
-            if ((PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             return View();
         }
 
@@ -73,7 +73,7 @@ namespace MvcShop.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            if ((PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             Person person =PS.GetItem(id);
             if (person == null)
             {
@@ -105,7 +105,7 @@ namespace MvcShop.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            if ((PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             Person person = PS.GetItem(id);
             if (person == null)
             {

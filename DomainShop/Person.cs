@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Dynamic;
 
@@ -17,5 +18,6 @@ namespace DomainShop
         public string Role { get; set; }
         public DateTime RegistrationDate { get; set; }
         public string Male { get; set; }
+        public List<Property> Basket { get; set; }
     }
 }

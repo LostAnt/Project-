@@ -14,10 +14,12 @@ namespace RepositoryShop.Migrations
             AddColumn("dbo.People", "Male", c => c.String());
             AddColumn("dbo.Properties", "Describe", c => c.String());
             AddColumn("dbo.People", "Role", c => c.String());
+            AddColumn("dbo.People", "Basket", c => c.String());
         }
         
         public override void Down()
         {
+            DropColumn("dbo.People", "Basket");
             DropColumn("dbo.People", "Role");
             DropColumn("dbo.Properties", "Describe");
             DropColumn("dbo.People", "Male");

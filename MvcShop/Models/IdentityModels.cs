@@ -33,5 +33,7 @@ namespace MvcShop.Models
         public System.Data.Entity.DbSet<DomainShop.Property> Properties { get; set; }
 
         public System.Data.Entity.DbSet<DomainShop.Person> People { get; set; }
+
+        public System.Data.Entity.DbSet<MvcShop.Models.PersonModels> PersonModels { get; set; }
     }
 }

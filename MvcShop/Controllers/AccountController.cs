@@ -127,6 +127,8 @@ namespace MvcShop.Controllers
             }
             return View(model);
         }
+
+
         public ActionResult Logoff()
         {
             FormsAuthentication.SignOut();

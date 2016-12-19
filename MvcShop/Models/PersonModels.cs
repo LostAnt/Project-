@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DomainShop;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,5 +18,6 @@ namespace MvcShop.Models
         public string Brithdate { get; set; }
         public string Role { get; set; }
         public DateTime RegistrationDate { get; set; }
+        public List<Property> Basket { get; set; }
     }
 }

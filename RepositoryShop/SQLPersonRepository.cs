@@ -48,7 +48,7 @@ namespace RepositoryShop
                 if (s.Login == id || s.Email == id)
                     return s;
             
-                return GetItem(Convert.ToInt64(id));            
+                return null;            
         }
 
         public Person GetItem(long id)

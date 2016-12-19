@@ -64,7 +64,7 @@ namespace MvcShop.Controllers
             if (HttpContext.User.Identity.IsAuthenticated)
                 try
                 {
-                    PeS.GetItem(User.Identity.Name).Basket.Add(PS.GetItem(1));
+                 //   PeS.GetItem(User.Identity.Name).Basket.Add(PS.GetItem(1));
                     PeS.GetItem(User.Identity.Name).Basket.Add(item);
                     return RedirectToAction("Index");
                 }

@@ -2,15 +2,29 @@
     ViewBag.Title = "Home Page";
 
 }
-<div class="home-block1">
-    <div class="block1-main-info">
-        <div class="home-block1-text">
-            <p> Discover Your Perfect Home </p>            
-            @Html.ActionLink("Create", "Create", "Admin")
-            @Html.ActionLink("Index", "Index", "Admin")
-          </div>
-        <div class="block1-search-block">
 
+@Styles.Render("~/Content/Styles.css")
+@Scripts.Render("~/Scripts/slider.js")
+
+<section id="fader">
+    <img src="~/Content/Images/1.jpg" alt="" style="opacity: 1;">
+    <img src="~/Content/Images/2.jpg" alt="" style="opacity: 0;">
+    <img src="~/Content/Images/3.jpg" alt="" style="opacity: 0;">
+</section>
+
+<div class="black-phone"></div>
+
+<div class="block1-main-info">
+    <div class="moke1"></div>
+    <div class="search-block">
+        <div class="home-block1-text">
+            <p> Найдите Свой Идеальный Дом </p>
         </div>
+        <form action="~/Home/Search" class="form-wrapper cf">
+            <input type="text" name="city" placeholder="Например : Москва">
+            <button type="submit">Искать</button>
+        </form>
     </div>
+
+    <div class="moke2"></div>
 </div>

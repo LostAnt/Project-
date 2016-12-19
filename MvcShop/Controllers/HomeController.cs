@@ -5,16 +5,17 @@ using System.Web;
 using System.Web.Mvc;
 using DomainShop;
 using RepositoryShop.IRepositories;
+using ServicesShop;
 
 namespace MvcShop.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPersonRepository _personRepository;
+        private readonly ISearchService _searchService;
 
-        public HomeController(IPersonRepository repository)
+        public HomeController(ISearchService searchService)
         {
-            _personRepository = repository;
+            _searchService = searchService;
         }
 
         public ActionResult Home()
@@ -38,9 +39,19 @@ namespace MvcShop.Controllers
             return View();
         }
 
-        public ActionResult Search()
+        public ActionResult SearchPartial(string city = "", string minPrice = "0", string maxPrice = "20000000",
+            string minBeds = "0", string maxBeds = "10", String type = "")
         {
+            return PartialView(_searchService.Search(city, minPrice, maxPrice, minBeds, maxBeds, type));
+        }
 
+        public ActionResult Search(string city = "")
+        {
+            return View((Object)city);
+        }
+
+        public ActionResult Detail()
+        {
             return View();
         }
     }

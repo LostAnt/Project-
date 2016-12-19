@@ -4,43 +4,45 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title – приложение ASP.NET</title>
+    <title>@ViewBag.Title Realtor.com </title>
     @Styles.Render("~/Content/Styles.css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/Scripts/jquery-3.1.1.min.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
 
 </head>
 <body>
-    <header  id="wrapper">
-        <div class="">
-            <div class="navbar-header">
-                @Html.ActionLink("Realtor.com", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="">
-                <nav>
-                    <ul class="navbar-list">
-                        <li>@Html.ActionLink("КУПИТЬ", "Home", "Home")</li>
-                        <li>@Html.ActionLink("ПРОДАТЬ", "About", "Home")</li>
-                        <li>@Html.ActionLink("АРЕНДА", "Contact", "Home")</li>
-                    </ul>
-                </nav>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </header>
-    <main>
+        <header id="wrapper">
+                <div class="navbar-header">
+                    @Html.ActionLink("Realtor.com", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="">
+                    <nav>
+                        <ul class="navbar-list">
+                            <li>@Html.ActionLink("КУПИТЬ", "Home", "Home", new { area = "" }, new { @class = "main-text-style, header-menu" })</li>
+                            <li>@Html.ActionLink("ПРОДАТЬ", "About", "Home", new { area = "" }, new { @class = "main-text-style, header-menu" })</li>
+                            <li>@Html.ActionLink("ИНФОРМАЦИЯ", "Contact", "Home", new { area = "" }, new { @class = "main-text-style, header-menu" })</li>
+                        </ul>
+                    </nav>
+                    @Html.Partial("_LoginPartial")
+                </div>
+        </header>
+<main>
+    <div id="wrapper">
         @RenderBody()
-    </main>
-    <footer>
-        <div class="rights-text">
-            <p>&copy; @DateTime.Now.Year – Realtor.com</p>
-            <p>All right is reserved.</p>
-        </div>
-    </footer>
+    </div>
+</main>
+    <div class="footer-fone"></div>
+<footer>
+    <div class="rights-text">
+        <p>&copy; @DateTime.Now.Year – Realtor.com</p>
+        <p>All right is reserved.</p>
+    </div>
+</footer>
 
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
 </body>
 </html>

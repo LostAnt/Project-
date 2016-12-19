@@ -19,29 +19,37 @@
 <div class="search-results">
     @foreach (var i in @Model)
     {
-        <div class="demo-card-wide mdl-card mdl-shadow--2dp property-desc-block">
-            <div class="mdl-card__title" style="background: url('http://curated.ru/wp-content/uploads/2015/09/%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D1%81%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D1%87%D0%B0%D1%81%D1%82%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B4%D0%BE%D0%BC%D0%B0-armandale-1-%D0%BE%D1%82-mitsuori-01.jpg') center / cover;">
-                <h2 class="mdl-card__title-text" style="color: red;">@i.Price P</h2>
+        <div class="search-card mdl-shadow--2dp ">
+            <div class="mdl-card__title" style="background: url('http://curated.ru/wp-content/uploads/2014/04/дизайн-современного-дома-duk-от-студии-nico-van-der-meulen-02.jpg') center/cover;">
             </div>
-            <div class="mdl-card__supporting-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Mauris sagittis pellentesque lacus eleifend lacinia...
-            </div>
-            <div class="mdl-card__supporting-text">
-                <p>Страна : @i.Country</p>
-                <p>Город : @i.City</p>
-                <p>Адрес : @i.Address</p>
-                <p>Спальных комнат : @i.Bedrooms</p>
-                <p>Ванных комнат : 1</p>
-                <p>Общая площадь : 322</p>
-                <p>Жилая площадь : @i.LivArea</p>
-                <p>Тип недвижимости : @i.Type</p>
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Смотреть
-                </a>
+            <div class="demo-card-wide mdl-card">
+                <div class="card-main-info">
+                    <div class="mdl-card__supporting-text">
+                        <p>Страна : @i.Country</p>
+                        <p>Город : @i.City</p>
+                        <p>Адрес : @i.Address</p>
+                        <p>Спален : @i.Bedrooms</p>
+                        <p>Ванных : @i.Bathrooms</p>
+                    </div>
+                    <div class="price-block ">
+                        <p>
+                            @i.Price Р
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        Смотреть
+                    </a>
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        Заявка
+                    </a>
+                </div>
             </div>
         </div>
     }
 </div>
+@*<div class="mdl-card__supporting-text">
+        This spacious and bright Jr.4/ convertible 2 bedroom, is on a high floor with open city views terrace in a luxurious, full service, doorman building. The alcove den easily converts into a 2nd bedroom or an office. The airy layout features an oversized living room and bedroom, marble bath. Enjoy four extra large closets with hardwood doors and floors throughout.420 is meticulously maintained, with a 24hr. doorman, concierge and live in resident manager. Private garage is available to residents at a discounted cost, central laundry facility and the option of adding private washer/dryer to the unit. Conveniently located near the 2nd Ave. subway, and 68th Street subway. cross town buses and FDR drive. Near the finest hospitals and schools. Walk to great restaurants, shopping, fitness centers, parks and cultural institutions. Pets are allowed. Pied-e-terres, co-purchasing and guarantors are also permitted.
+    </div>*@

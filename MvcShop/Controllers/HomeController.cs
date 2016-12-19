@@ -46,5 +46,10 @@ namespace MvcShop.Controllers
         {
             return View((Object)city);
         }
+
+        public ActionResult Detail()
+        {
+            return View();
+        }
     }
 }

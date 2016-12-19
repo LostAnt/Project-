@@ -1,4 +1,4 @@
-/**
+﻿/**
  * material-design-lite - Material Design Components in CSS, JS and HTML
  * @version v1.2.1
  * @license Apache-2.0
@@ -899,14 +899,11 @@ h6 {
 
 p {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 24px;
   letter-spacing: 0;
   margin-bottom: 16px; }
 
-a {
-  color: rgb(255,64,129);
-  font-weight: 500; }
 
 blockquote {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -937,11 +934,7 @@ address {
   letter-spacing: 0;
   font-style: normal; }
 
-ul, ol {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0; }
+
 
 /**
  * Class Name Styles
@@ -4242,7 +4235,9 @@ input.mdl-button[type="submit"] {
           perspective-origin: 165px 56px;
   -webkit-transform-origin: 165px 56px;
           transform-origin: 165px 56px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+    width: 50%;
+}
   .mdl-card__title.mdl-card--border {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 
@@ -4251,7 +4246,7 @@ input.mdl-button[type="submit"] {
       -ms-flex-item-align: end;
           align-self: flex-end;
   color: inherit;
-  display: block;
+  display: inline-block;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -4274,7 +4269,7 @@ input.mdl-button[type="submit"] {
   line-height: 18px;
   overflow: hidden;
   padding: 16px 16px;
-  width: 90%; }
+  width: 50%; }
 
 .mdl-card__actions {
   font-size: 16px;

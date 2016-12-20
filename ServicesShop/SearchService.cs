@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DomainShop;
+using RepositoryShop;
 using RepositoryShop.IRepositories;
 
 namespace ServicesShop

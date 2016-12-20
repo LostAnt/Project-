@@ -9,6 +9,7 @@ using RepositoryShop.IRepositories;
 using ServicesShop;
 using ServicesShop.Interfaces;
 using ServicesShop.Service;
+using ServicesShop;
 
 namespace MvcShop.App_Start
 {

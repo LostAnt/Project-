@@ -1,3 +1,5 @@
+using DomainShop;
+
 namespace RepositoryShop.Migrations
 {
     using System;
@@ -10,7 +12,6 @@ namespace RepositoryShop.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "RepositoryShop.Contexts.dbcontext";
         }
 
         protected override void Seed(RepositoryShop.Contexts.dbcontext context)
@@ -20,13 +21,13 @@ namespace RepositoryShop.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            //context.Properties.AddOrUpdate(
+            //  p => p.FullName,
+            //  new Person { FullName = "Andrew Peters" },
+            //  new Person { FullName = "Brice Lambson" },
+            //  new Person { FullName = "Rowan Miller" }
+            //);
+
         }
     }
 }

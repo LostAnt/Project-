@@ -8,8 +8,8 @@ namespace ServicesShop
 {
     public class SearchService : ISearchService
     {
-        private readonly IPropertyRepository _propertyRepository;
-        public SearchService(IPropertyRepository propertyRepository)
+        private readonly IRepository<Property> _propertyRepository;
+        public SearchService(IRepository<Property> propertyRepository)
         {
             _propertyRepository = propertyRepository;
         }

@@ -7,13 +7,13 @@ namespace RepositoryShop.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class dopInfo : IMigrationMetadata
+    public sealed partial class migr : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(dopInfo));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(migr));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612161132065_dopInfo"; }
+            get { return "201612191523477_migr"; }
         }
         
         string IMigrationMetadata.Source

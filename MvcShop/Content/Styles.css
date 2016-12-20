@@ -505,3 +505,15 @@ img.bg {
         text-align: center;
         padding-top: 70px;
     }
+
+/*ДЕТАЛЬНАЯ ИНФА*/
+.detail-main-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-info-image img{
+    max-height: 700px;
+    width: 700px;
+}
+/*ДЕТАЛЬНАЯ ИНФА*/

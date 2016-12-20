@@ -11,12 +11,17 @@
 
 <div class="detail-main-info">
     <a href="~/Content/Images/1.jpg"
-       class="lightview"
+       class="lightview detail-info-image"
        data-lightview-group="mixed">
         <img src="../../Content/Images/1.jpg" />
     </a>
 
-    <a href="~/Content/Images/2.jpg"
-       class="lightview"
-       data-lightview-group="mixed">Image 2</a>
+    @*@foreach (var item in Model.Images)
+    {*@
+        <a href="~/Content/Images/2.jpg"
+           class="lightview"
+           data-lightview-group="mixed"
+           style="visibility: hidden;">Image 2</a>
+    @*  *@
+    <div style="height: 50%">aaaaaaaaaaaaaaaaaaaaa</div>
 </div>

@@ -109,13 +109,9 @@
     <Compile Include="Contexts\dbcontext.cs" />
     <Compile Include="IRepositories\IPersonRepository.cs" />
     <Compile Include="IRepositories\IRepository.cs" />
-    <Compile Include="Migrations\201612141139310_InitialCreate.cs" />
-    <Compile Include="Migrations\201612141139310_InitialCreate.Designer.cs">
-      <DependentUpon>201612141139310_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612161132065_dopInfo.cs" />
-    <Compile Include="Migrations\201612161132065_dopInfo.Designer.cs">
-      <DependentUpon>201612161132065_dopInfo.cs</DependentUpon>
+    <Compile Include="Migrations\201612191523477_migr.cs" />
+    <Compile Include="Migrations\201612191523477_migr.Designer.cs">
+      <DependentUpon>201612191523477_migr.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,11 +133,8 @@
     <Folder Include="App_Start\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612141139310_InitialCreate.resx">
-      <DependentUpon>201612141139310_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612161132065_dopInfo.resx">
-      <DependentUpon>201612161132065_dopInfo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612191523477_migr.resx">
+      <DependentUpon>201612191523477_migr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -94,6 +94,7 @@
     <Compile Include="Service\Hash.cs" />
     <Compile Include="Service\PersonService.cs" />
     <Compile Include="Service\PropertyService.cs" />
+    <Compile Include="Service\PurchaseService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

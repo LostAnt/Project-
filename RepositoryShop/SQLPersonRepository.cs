@@ -47,19 +47,14 @@ namespace RepositoryShop
             foreach (var s in _db.Persons)
                 if (s.Login == id || s.Email == id)
                     return s;
-            
                 return null;            
         }
 
         public Person GetItem(long id)
         {
             // if (_db.Persons.Find(id) == null) return null;
-            foreach (var s in _db.Persons)
-                if (s.Id == id)
-                    return s;
-
-
-            return null;
+            return _db.Persons.Find(id);
+                     
         }
 
         public void Create(Person item)

@@ -28,7 +28,7 @@ namespace MvcShop.Controllers
         }
 
         // GET: Person/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(long id)
         {
             if (id == null)
             {
@@ -66,7 +66,7 @@ namespace MvcShop.Controllers
         }
 
         // GET: Person/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(long id)
         {
 
             if (id == null)

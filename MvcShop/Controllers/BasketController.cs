@@ -46,7 +46,6 @@ namespace MvcShop.Controllers
                 return View("Требуется авторизация");
 
         }
-
         //   GET: Admin/Create
         public ActionResult Buy()
         {

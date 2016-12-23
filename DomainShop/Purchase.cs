@@ -12,4 +12,4 @@ namespace DomainShop
         public long? BuyerId { get; set; }
         public long? SellerId { get; set; }     
     }
-}
+} 

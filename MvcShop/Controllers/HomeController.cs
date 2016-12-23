@@ -6,16 +6,18 @@ using System.Web.Mvc;
 using DomainShop;
 using RepositoryShop.IRepositories;
 using ServicesShop;
-
+using ServicesShop.Interfaces;
 namespace MvcShop.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ISearchService _searchService;
+        private readonly IService<Property> _propertyService;
 
-        public HomeController(ISearchService searchService)
+        public HomeController(ISearchService searchService, IService<Property> propertyService)
         {
             _searchService = searchService;
+            _propertyService = propertyService;
         }
 
         public ActionResult Home()
@@ -50,9 +52,9 @@ namespace MvcShop.Controllers
             return View((Object)city);
         }
 
-        public ActionResult Detail()
+        public ActionResult Detail(int id)
         {
-            return View();
+            return View(_propertyService.GetItem(id));
         }
     }
 }

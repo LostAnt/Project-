@@ -6,6 +6,7 @@
 
 @Scripts.Render("~/Scripts/lightview.js")
 @Styles.Render("~/Content/lightview.css")
+@Styles.Render("~/Content/material.css")
 
 <div class="detail-main-info mdl-shadow--2dp">
     <div class="flex-row">
@@ -23,14 +24,23 @@
            style="visibility: hidden;">Image 2</a>
         @*  *@
         <div class="flex-column main-info-prop">
-            <p>Страна : @*@Model.Country*@</p>
-            <p>Город : @*@Model.City*@</p>
-            <p>Адрес : @*@Model.Address*@</p>
-            <p>Спален : @*@Model.Bedrooms*@</p>
-            <p>Ванных : @*@Model.Bathrooms*@</p>
-            <p>Жилая площадь : @*@Model.LivArea*@</p>
-            <p>Тип : @*@Model.Type*@</p>
+            <p>Страна : @Model.Country</p>
+            <p>Город : @Model.City</p>
+            <p>Адрес : @Model.Address</p>
+            <p>Спален : @Model.Bedrooms</p>
+            <p>Ванных : @Model.Bathrooms</p>
+            <p>Жилая площадь : @Model.LivArea</p>
+            <p>Тип : @Model.Type</p>
         </div>
     </div>
-    <div class="main-info-describe"><p>ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss@*@Model.Describe*@</p></div>
+    <div class="main-info-describe"><p>@Model.Describe</p></div>
+
+    <div class="mdl-card__actions mdl-card--border">
+        <form action="~/Basket/Buy">
+            <input type="text" hidden="hidden" value="@Model.PropertyId" name="id" />
+            <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Добавить в список желаемого
+            </button>
+        </form>
+    </div>
 </div>

@@ -77,13 +77,15 @@
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.PropertyId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.PropertyId }) |
+
                 @Html.ActionLink("Delete", "Delete", new { id=item.PropertyId })
             </td>
         </tr>
     }
     
     </table>
+    <div>
+        @Html.ActionLink("Back to List", "Home", "Home")
+    </div>
 </body>
 </html>

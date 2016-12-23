@@ -47,6 +47,7 @@ namespace ServicesShop.Service
             db.Delete(s);
         }
 
+
         public void Update(Person item)
         {
             db.Update(item);

@@ -10,6 +10,10 @@ namespace RepositoryShop.Contexts
 {
   public class dbcontext : DbContext
     {
+      public dbcontext():base("dbcontext")
+      {
+
+      }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Property> Properties { get; set; }
         public DbSet<Purchase> Purchases { get; set; }

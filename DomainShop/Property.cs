@@ -21,5 +21,7 @@ namespace DomainShop
         public string City { get; set; }
         public string Address { get; set; }
         public string Describe { get; set; }
+        public Person Person { get; set; }
+        public long? PersonId { get; set; }
     }
 }

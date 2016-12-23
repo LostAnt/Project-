@@ -23,5 +23,6 @@ namespace DomainShop
         public string Describe { get; set; }
         public Person Person { get; set; }
         public long? PersonId { get; set; }
+        public string[] Pictures { get; set; }
     }
 }

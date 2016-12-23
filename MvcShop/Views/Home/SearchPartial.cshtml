@@ -17,39 +17,39 @@
 
 
 <div class="search-results">
-    @foreach (var i in @Model)
-    {
+    @foreach (var i in @Model) {
         <div class="search-card mdl-shadow--2dp ">
-            <div class="mdl-card__title" style="background: url('http://curated.ru/wp-content/uploads/2014/04/дизайн-современного-дома-duk-от-студии-nico-van-der-meulen-02.jpg') center/cover;">
-            </div>
-            <div class="demo-card-wide mdl-card">
-                <div class="card-main-info">
-                    <div class="mdl-card__supporting-text">
-                        <p>Страна : @i.Country</p>
-                        <p>Город : @i.City</p>
-                        <p>Адрес : @i.Address</p>
-                        <p>Спален : @i.Bedrooms</p>
-                        <p>Ванных : @i.Bathrooms</p>
-                    </div>
-                    <div class="price-block ">
-                        <p>
-                            @i.Price Р
-                        </p>
-                    </div>
-                </div>
+            <div class="mdl-card__title" style="background: url('@i.Pictures[0]') center/cover;">
 
-                <div class="mdl-card__actions mdl-card--border">
-                    <form action="~/Home/Detail">
-                        <input type="text" hidden="hidden" value="@i.PropertyId" name="id"/>
-                        <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                           Подробнее
-                        </button>
-                    </form>
+                <div class="demo-card-wide mdl-card">
+                    <div class="card-main-info">
+                        <div class="mdl-card__supporting-text">
+                            <p>Страна : @i.Country</p>
+                            <p>Город : @i.City</p>
+                            <p>Адрес : @i.Address</p>
+                            <p>Спален : @i.Bedrooms</p>
+                            <p>Ванных : @i.Bathrooms</p>
+                        </div>
+                        <div class="price-block ">
+                            <p>
+                                @i.Price Р
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mdl-card__actions mdl-card--border">
+                        <form action="~/Home/Detail">
+                            <input type="text" hidden="hidden" value="@i.PropertyId" name="id"/>
+                            <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                                Подробнее
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     }
-</div>
+    </div>
 @*<div class="mdl-card__supporting-text">
         This spacious and bright Jr.4/ convertible 2 bedroom, is on a high floor with open city views terrace in a luxurious, full service, doorman building. The alcove den easily converts into a 2nd bedroom or an office. The airy layout features an oversized living room and bedroom, marble bath. Enjoy four extra large closets with hardwood doors and floors throughout.420 is meticulously maintained, with a 24hr. doorman, concierge and live in resident manager. Private garage is available to residents at a discounted cost, central laundry facility and the option of adding private washer/dryer to the unit. Conveniently located near the 2nd Ave. subway, and 68th Street subway. cross town buses and FDR drive. Near the finest hospitals and schools. Walk to great restaurants, shopping, fitness centers, parks and cultural institutions. Pets are allowed. Pied-e-terres, co-purchasing and guarantors are also permitted.
     </div>*@

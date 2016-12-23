@@ -10,19 +10,19 @@
 
 <div class="detail-main-info mdl-shadow--2dp">
     <div class="flex-row">
-        <a href="~/Content/Images/1.jpg"
+        <a href="@Model.Pictures[0]"
            class="lightview detail-info-image"
            data-lightview-group="mixed">
-            <img src="../../Content/Images/1.jpg" />
+            <img src="@Model.Pictures[0]" />
         </a>
 
-        @*@foreach (var item in Model.Images)
-            {*@
-        <a href="~/Content/Images/2.jpg"
-           class="lightview"
-           data-lightview-group="mixed"
-           style="visibility: hidden;">Image 2</a>
-        @*  *@
+        @foreach (var item in Model.Pictures)
+        {
+            <a href="item"
+               class="lightview"
+               data-lightview-group="mixed"
+               style="visibility: hidden;">Image 2</a>
+        }
         <div class="flex-column main-info-prop">
             <p>Страна : @Model.Country</p>
             <p>Город : @Model.City</p>

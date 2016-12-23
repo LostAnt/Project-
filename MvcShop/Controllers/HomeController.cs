@@ -13,11 +13,13 @@ namespace MvcShop.Controllers
     {
         private readonly ISearchService _searchService;
         private readonly IService<Property> _propertyService;
+        private readonly IPersonService _personService; 
 
-        public HomeController(ISearchService searchService, IService<Property> propertyService)
+        public HomeController(ISearchService searchService, IService<Property> propertyService, IPersonService personService)
         {
             _searchService = searchService;
             _propertyService = propertyService;
+            _personService = personService;
         }
 
         public ActionResult Home()
@@ -54,6 +56,15 @@ namespace MvcShop.Controllers
 
         public ActionResult Detail(int id)
         {
+            try
+            {
+                ViewBag.Basket = User.Identity.IsAuthenticated && _personService.GetItem(User.Identity.Name).Basket.Exists(x => x.PropertyId == id);
+            }
+            catch (NullReferenceException)
+            {
+
+                ViewBag.Basket = false;
+            }
             return View(_propertyService.GetItem(id));
         }
     }

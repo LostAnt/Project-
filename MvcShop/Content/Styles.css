@@ -551,6 +551,8 @@ img.bg {
 
 .main-info-describe {
     width: 700px;
+    word-wrap: break-word;
+    padding: 10px;
 }
 
     .main-info-describe p {
@@ -558,7 +560,6 @@ img.bg {
         padding-left: 10px;
         font-family: 'Roboto';
         font-weight: 100;
-        white-space: pre-line;
     }
 
 .reg-input {

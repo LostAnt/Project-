@@ -28,7 +28,7 @@ namespace MvcShop.Controllers
             {
                 if (PeS.GetItem(HttpContext.User.Identity.Name).Basket != null)
                     return View(PeS.GetItem(User.Identity.Name).Basket);
-                else return View("Корзина пуста");                                                                   // Доделать
+                else return View("EmptyBasket");                                                                   // Доделать
             }
             else
                 return RedirectToAction("Login", "Account");
@@ -71,7 +71,23 @@ namespace MvcShop.Controllers
                     if (s.PropertyId == id)
                     {
                         PeS.GetItem(User.Identity.Name).Basket.Remove(s);
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Detail", "Home", new { id = id });
+                    }
+                return View();
+            }
+            else
+                return RedirectToAction("Login", "Account");
+        }
+
+        public ActionResult DeleteFromBasket(int id)
+        {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                foreach (var s in PeS.GetItem(User.Identity.Name).Basket)
+                    if (s.PropertyId == id)
+                    {
+                        PeS.GetItem(User.Identity.Name).Basket.Remove(s);
+                        return RedirectToAction("Index", "Basket");
                     }
                 return View();
             }

@@ -33,14 +33,27 @@
             <p>Тип : @Model.Type</p>
         </div>
     </div>
-    <div class="main-info-describe"><p>@Model.Describe</p></div>
+    <div class="main-info-describe">@Model.Describe</div>
 
     <div class="mdl-card__actions mdl-card--border">
-        <form action="~/Basket/Buy">
-            <input type="text" hidden="hidden" value="@Model.PropertyId" name="id" />
-            <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                Добавить в список желаемого
-            </button>
-        </form>
+        @if (ViewBag.Basket == false)
+        {
+            <form action="~/Basket/Buy">
+                <input type="text" hidden="hidden" value="@Model.PropertyId" name="id"/>
+                <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Добавить в список желаемого
+                </button>
+            </form>
+        }
+        else
+        {
+            <form action="~/Basket/Delete">
+                <input type="text" hidden="hidden" value="@Model.PropertyId" name="id" />
+                <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: green">
+                    Убрать из списка
+                </button>
+            </form>
+        }
+
     </div>
 </div>

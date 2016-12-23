@@ -359,6 +359,7 @@
     <Content Include="Views\Home\SearchPartial.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
+    <Content Include="Views\Basket\EmptyBasket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

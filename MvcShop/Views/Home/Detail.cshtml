@@ -18,10 +18,10 @@
 
         @foreach (var item in Model.Pictures)
         {
-            <a href="item"
+            <a href="@item"
                class="lightview"
                data-lightview-group="mixed"
-               style="visibility: hidden;">Image 2</a>
+               style="visibility: hidden; width: 5px;">Image 2</a>
         }
         <div class="flex-column main-info-prop">
             <p>Страна : @Model.Country</p>

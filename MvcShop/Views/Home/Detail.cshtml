@@ -6,6 +6,7 @@
 
 @Scripts.Render("~/Scripts/lightview.js")
 @Styles.Render("~/Content/lightview.css")
+@Styles.Render("~/Content/material.css")
 
 <div class="detail-main-info mdl-shadow--2dp">
     <div class="flex-row">
@@ -34,10 +35,12 @@
     </div>
     <div class="main-info-describe"><p>@Model.Describe</p></div>
 
-    <form action="~/Basket/Buy">
-        <input type="text" hidden="hidden" value="@Model.PropertyId" name="id" />
-        <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-            Подробнее о пивасике
-        </button>
-    </form>
+    <div class="mdl-card__actions mdl-card--border">
+        <form action="~/Basket/Buy">
+            <input type="text" hidden="hidden" value="@Model.PropertyId" name="id" />
+            <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Добавить в список желаемого
+            </button>
+        </form>
+    </div>
 </div>

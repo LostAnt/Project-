@@ -7,7 +7,7 @@
 
         <ul class="nav navbar-nav navbar-right-list navbar-list">
         <li>
-            @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink(User.Identity.Name, "Index", "Basket", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
     </ul>
@@ -20,3 +20,11 @@ else
         <li>@Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
+    @if (User.Identity.Name == "1")
+    {
+    <ul class="nav navbar-nav navbar-right-list navbar-list main-text-style">
+        <li>@Html.ActionLink("Users", "Index", "Person", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Property", "Index", "Admin", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>    
+    }
+    

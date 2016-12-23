@@ -78,8 +78,10 @@ namespace RepositoryShop
         public void Update(Person item)
         {
             //   _db.Entry(item).State = EntityState.Modified;
-            Delete(item.Id);
-            Create(item);
+            //  Delete(item.Id);
+            //  Create(item);
+            _db.Persons.Remove(item);
+            _db.Persons.Add(item);
             _db.SaveChanges();
         }
 

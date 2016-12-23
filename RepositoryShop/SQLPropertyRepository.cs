@@ -47,6 +47,11 @@ namespace RepositoryShop
             return _db.Properties.Find(id);
         }
 
+        public Property GetItem(long id)
+        {
+            return _db.Properties.Find(id);
+        }
+
         public void Create(Property item)
         {
             _db.Properties.Add(item);
@@ -67,7 +72,7 @@ namespace RepositoryShop
         {
           //  long id =item.PropertyId;
          //   Property property = _db.Properties.Find(id);
-            _db.Properties.Remove(item);
+            _db.Properties.Remove(GetItem(item.PropertyId));
             _db.Properties.Add(item);
            //  _db.Entry(item).State = EntityState.Modified; 
             _db.SaveChanges();

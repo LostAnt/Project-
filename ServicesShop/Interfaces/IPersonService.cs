@@ -15,6 +15,7 @@ namespace ServicesShop.Interfaces
         void Create(Person item);
         void Update(Person item);
         void Delete(string id);
+        void Delete(long id);
         void Save();
     }
 }

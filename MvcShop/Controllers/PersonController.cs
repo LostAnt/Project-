@@ -99,7 +99,7 @@ namespace MvcShop.Controllers
         }
 
         // GET: Person/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
@@ -117,7 +117,7 @@ namespace MvcShop.Controllers
         // POST: Person/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             PS.Delete(id);
             PS.Save();

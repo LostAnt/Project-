@@ -39,12 +39,12 @@
                 </div>
 
                 <div class="mdl-card__actions mdl-card--border">
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                        Смотреть
-                    </a>
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                        Заявка
-                    </a>
+                    <form action="~/Home/Detail">
+                        <input type="text" hidden="hidden" value="@i.PropertyId" name="id"/>
+                        <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                           Подробнее
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

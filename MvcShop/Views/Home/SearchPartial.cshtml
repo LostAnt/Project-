@@ -23,31 +23,31 @@
             <div class="mdl-card__title" style="background: url('@i.Pictures[0]') center/cover;">
             </div>
 
-                <div class="demo-card-wide mdl-card">
-                    <div class="card-main-info">
-                        <div class="mdl-card__supporting-text">
-                            <p>Страна : @i.Country</p>
-                            <p>Город : @i.City</p>
-                            <p>Адрес : @i.Address</p>
-                            <p>Спален : @i.Bedrooms</p>
-                            <p>Ванных : @i.Bathrooms</p>
-                        </div>
-                        <div class="price-block ">
-                            <p>
-                                @i.Price Р
-                            </p>
-                        </div>
+            <div class="demo-card-wide mdl-card">
+                <div class="card-main-info">
+                    <div class="mdl-card__supporting-text">
+                        <p>Страна : @i.Country</p>
+                        <p>Город : @i.City</p>
+                        <p>Адрес : @i.Address</p>
+                        <p>Спален : @i.Bedrooms</p>
+                        <p>Ванных : @i.Bathrooms</p>
                     </div>
-
-                    <div class="mdl-card__actions mdl-card--border">
-                        <form action="~/Home/Detail">
-                            <input type="text" hidden="hidden" value="@i.PropertyId" name="id" />
-                            <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                                Подробнее
-                            </button>
-                        </form>
+                    <div class="price-block ">
+                        <p>
+                            @i.Price Р
+                        </p>
                     </div>
                 </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                    <form action="~/Home/Detail">
+                        <input type="text" hidden="hidden" value="@i.PropertyId" name="id" />
+                        <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            Подробнее
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     }
 </div>

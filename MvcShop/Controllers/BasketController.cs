@@ -25,71 +25,44 @@ namespace MvcShop.Controllers
         public ActionResult Index()
         {
             if (HttpContext.User.Identity.IsAuthenticated)
-                return View(PeS.GetItem(User.Identity.Name).Basket);
-            else
-                return View("Требуется авторизация"); 
-        }
-
-        // GET: Admin/Details/5
-        public ActionResult Details(int id)
-        {
-            if (HttpContext.User.Identity.IsAuthenticated)
             {
-                foreach (var s in PeS.GetItem(User.Identity.Name).Basket)
-                {
-                    if (s.PropertyId == id)
-                        return View(s);
-                }
-                return View();
+                if (PeS.GetItem(HttpContext.User.Identity.Name).Basket != null)
+                    return View(PeS.GetItem(User.Identity.Name).Basket);
+                else return View("EmptyBasket");                                                                   // Доделать
             }
             else
-                return View("Требуется авторизация");
-
-        }
-
-        //   GET: Admin/Create
-        public ActionResult Buy()
-        {
-
-            if (HttpContext.User.Identity.IsAuthenticated) return View();
-            else
-                return View("Требуется авторизация");
-
+                return RedirectToAction("Login", "Account");
         }
 
         //   POST: Admin/Create
-        [System.Web.Mvc.HttpPost]
-        public ActionResult Buy(Property item)
+        public ActionResult Buy(int id)
         {
             if (HttpContext.User.Identity.IsAuthenticated)
-                try
+            {
+                if (PeS.GetItem(User.Identity.Name).Basket == null)
                 {
-                    PeS.GetItem(User.Identity.Name).Basket.Add(PS.GetItem(1));
-                    PeS.GetItem(User.Identity.Name).Basket.Add(item);
-                    return RedirectToAction("Index");
+                    PeS.GetItem(User.Identity.Name).Basket = new List<Property>();
+                    PeS.GetItem(User.Identity.Name).Basket.Add(PS.GetItem(id));
+                    return RedirectToAction("Detail", "Home", new { id = id });
                 }
-                catch
+                else
                 {
-                    return View();
+                    bool are = false;
+                    foreach (var s in PeS.GetItem(User.Identity.Name).Basket)
+                        if (s.PropertyId == id) are = true;                                               // Проверка на наличие в корзине
+                    if (are == false) PeS.GetItem(User.Identity.Name).Basket.Add(PS.GetItem(id));
                 }
-            else
-                return View("Требуется авторизация");
+                bool are2 = false;
+                foreach (var s in PeS.GetItem(User.Identity.Name).Basket)
+                    if (s.PropertyId == id) are2 = true;
+                if (are2 == false) PeS.GetItem(User.Identity.Name).Basket.Add(PS.GetItem(id));
+
+                return RedirectToAction("Detail", "Home", new { id = id });
+            }
+            else { return RedirectToAction("Login", "Account"); Buy(id); }
+
         }
 
-        //// GET: Admin/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-        public ActionResult Delete()
-        {
-            if (HttpContext.User.Identity.IsAuthenticated) return View();
-            else
-                return View("Требуется авторизация");
-        }
-
-        // POST: Admin/Delete/5
-        [System.Web.Mvc.HttpPost]
         public ActionResult Delete(int id)
         {
             if (HttpContext.User.Identity.IsAuthenticated)
@@ -98,12 +71,28 @@ namespace MvcShop.Controllers
                     if (s.PropertyId == id)
                     {
                         PeS.GetItem(User.Identity.Name).Basket.Remove(s);
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Detail", "Home", new { id = id });
                     }
                 return View();
             }
             else
-                return View("Требуется авторизация");
+                return RedirectToAction("Login", "Account");
+        }
+
+        public ActionResult DeleteFromBasket(int id)
+        {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                foreach (var s in PeS.GetItem(User.Identity.Name).Basket)
+                    if (s.PropertyId == id)
+                    {
+                        PeS.GetItem(User.Identity.Name).Basket.Remove(s);
+                        return RedirectToAction("Index", "Basket");
+                    }
+                return View();
+            }
+            else
+                return RedirectToAction("Login", "Account");
         }
 
     }

@@ -15,44 +15,54 @@ namespace MvcShop.Controllers
     {
         IService<Property> PS;
         IPersonService PeS;
-        public AdminController(IService<Property> PS,IPersonService PeS)
+        public AdminController(IService<Property> PS, IPersonService PeS)
         {
             this.PS = PS;
-           this.PeS = PeS;
-           // if (HttpContext.User.Identity.IsAuthenticated) ErroreRole();
+            this.PeS = PeS;
+            // if (HttpContext.User.Identity.IsAuthenticated) ErroreRole();
             //  ErroreRole();
         }
         // GET: Admin
         public ActionResult Index()
         {
-            if ((PeS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PeS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PeS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PeS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             return View(PS.GetItemList());
         }
 
         // GET: Admin/Details/5
         public ActionResult Details(int id)
         {
-            if ((PeS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PeS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PeS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PeS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             return View(PS.GetItem(id));
         }
 
-     //   GET: Admin/Create
+        //   GET: Admin/Create
         public ActionResult Create()
         {
 
-            if ((PeS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PeS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PeS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PeS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             else
                 return View();
 
         }
 
-     //   POST: Admin/Create
-       [HttpPost]
-        public ActionResult Create(Property item)
+        //   POST: Admin/Create
+        [HttpPost]
+        public ActionResult Create(Property item, IEnumerable<HttpPostedFileBase> fileData)
         {
+
             try
             {
-                // TODO: Add insert logic here
+                foreach (var file in fileData)
+                {
+                    if (fileData != null)
+                    {
+                        string fileName = System.IO.Path.GetFileName(file.FileName);
+                        file.SaveAs(Server.MapPath("../Content/" + fileName));
+                    }
+                }
+                item.Pictures = fileData.Select(x =>  "../../Content/" + System.IO.Path.GetFileName(x.FileName)).ToArray();
                 PS.Create(item);
                 return RedirectToAction("Index");
             }
@@ -60,6 +70,7 @@ namespace MvcShop.Controllers
             {
                 return View();
             }
+
         }
 
         // GET: Admin/Edit/5
@@ -70,7 +81,7 @@ namespace MvcShop.Controllers
         //}
         public ActionResult Edit(int id)
         {
-            if ((PeS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PeS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PeS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PeS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             else
                 return View(PS.GetItem(id));
         }
@@ -84,7 +95,7 @@ namespace MvcShop.Controllers
                 PS.Update(item);
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex);
                 return View();
@@ -98,7 +109,7 @@ namespace MvcShop.Controllers
         //}
         public ActionResult Delete()
         {
-            if ((PeS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PeS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PeS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PeS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             else
                 return View();
         }

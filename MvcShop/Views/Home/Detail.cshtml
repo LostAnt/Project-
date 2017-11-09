@@ -6,17 +6,54 @@
 
 @Scripts.Render("~/Scripts/lightview.js")
 @Styles.Render("~/Content/lightview.css")
+@Styles.Render("~/Content/material.css")
 
-<h2>Detail</h2>
+<div class="detail-main-info mdl-shadow--2dp">
+    <div class="flex-row">
+        <a href="@Model.Pictures[0]"
+           class="lightview detail-info-image"
+           data-lightview-group="mixed">
+            <img src="@Model.Pictures[0]" />
+        </a>
 
-<div class="detail-main-info">
-    <a href="~/Content/Images/1.jpg"
-       class="lightview"
-       data-lightview-group="mixed">
-        <img src="../../Content/Images/1.jpg" />
-    </a>
+        @foreach (var item in Model.Pictures)
+        {
+            <a href="@item"
+               class="lightview"
+               data-lightview-group="mixed"
+               style="visibility: hidden; width: 5px;">Image 2</a>
+        }
+        <div class="flex-column main-info-prop">
+            <p>Страна : @Model.Country</p>
+            <p>Город : @Model.City</p>
+            <p>Адрес : @Model.Address</p>
+            <p>Спален : @Model.Bedrooms</p>
+            <p>Ванных : @Model.Bathrooms</p>
+            <p>Жилая площадь : @Model.LivArea</p>
+            <p>Тип : @Model.Type</p>
+        </div>
+    </div>
+    <div class="main-info-describe">@Model.Describe</div>
 
-    <a href="~/Content/Images/2.jpg"
-       class="lightview"
-       data-lightview-group="mixed">Image 2</a>
+    <div class="mdl-card__actions mdl-card--border">
+        @if (ViewBag.Basket == false)
+        {
+            <form action="~/Basket/Buy">
+                <input type="text" hidden="hidden" value="@Model.PropertyId" name="id"/>
+                <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Добавить в список желаемого
+                </button>
+            </form>
+        }
+        else
+        {
+            <form action="~/Basket/Delete">
+                <input type="text" hidden="hidden" value="@Model.PropertyId" name="id" />
+                <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: green">
+                    Убрать из списка
+                </button>
+            </form>
+        }
+
+    </div>
 </div>

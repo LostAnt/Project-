@@ -27,6 +27,10 @@ namespace ServicesShop.Service
         {
             return db.GetItem(id);
         }
+        public Person GetItem(long id)
+        {
+            return db.GetItem(id);
+        }
 
         public void Create(Person item)
         {
@@ -37,6 +41,12 @@ namespace ServicesShop.Service
         {
             db.Delete(id);
         }
+
+        public void Delete(long s)
+        {
+            db.Delete(s);
+        }
+
 
         public void Update(Person item)
         {

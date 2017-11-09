@@ -1,89 +1,64 @@
 ﻿@model IEnumerable<DomainShop.Property>
 
-@{
-    Layout = null;
-}
+@Scripts.Render("~/Scripts/jquery-3.1.1.min.js")
+@Scripts.Render("~/Scripts/jquery.formstyler.min.js")
+@Styles.Render("~/Content/jquery.formstyler.css")
+@Styles.Render("~/Content/material.css")
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Bedrooms)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bathrooms)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LivArea)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LandArea)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Country)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bedrooms)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bathrooms)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LivArea)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LandArea)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.PropertyId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.PropertyId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.PropertyId })
-            </td>
-        </tr>
+<style>
+    .demo-card-wide.mdl-card {
+        width: 512px;
     }
-    
-    </table>
-</body>
-</html>
+
+    .demo-card-wide > .mdl-card__title {
+        color: #fff;
+        height: 176px;
+    }
+
+    .demo-card-wide > .mdl-card__menu {
+        color: #fff;
+    }
+</style>
+
+<h1>Список желаемого</h1>
+
+<div class="search-results">
+    @foreach (var i in @Model)
+    {
+        <div class="search-card mdl-shadow--2dp ">
+            <div class="mdl-card__title" style="background: url('@i.Pictures[0]') center/cover;">
+            </div>
+            <div class="demo-card-wide mdl-card">
+                <div class="card-main-info">
+                    <div class="mdl-card__supporting-text">
+                        <p>Страна : @i.Country</p>
+                        <p>Город : @i.City</p>
+                        <p>Адрес : @i.Address</p>
+                        <p>Спален : @i.Bedrooms</p>
+                        <p>Ванных : @i.Bathrooms</p>
+                    </div>
+                    <div class="price-block ">
+                        <p>
+                            @i.Price Р
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mdl-card__actions mdl-card--border">
+                    <form action="~/Home/Detail">
+                        <input type="text" hidden="hidden" value="@i.PropertyId" name="id"/>
+                        <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            Подробнее
+                        </button>
+                    </form>
+                    <form action="~/Basket/DeleteFromBasket">
+                        <input type="text" hidden="hidden" value="@i.PropertyId" name="id" />
+                        <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color: green">
+                            Убрать из списка
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>

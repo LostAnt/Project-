@@ -47,19 +47,14 @@ namespace RepositoryShop
             foreach (var s in _db.Persons)
                 if (s.Login == id || s.Email == id)
                     return s;
-            
-                return GetItem(Convert.ToInt64(id));            
+                return null;            
         }
 
         public Person GetItem(long id)
         {
             // if (_db.Persons.Find(id) == null) return null;
-            foreach (var s in _db.Persons)
-                if (s.Id == id)
-                    return s;
-
-
-            return null;
+            return _db.Persons.Find(id);
+                     
         }
 
         public void Create(Person item)
@@ -83,8 +78,10 @@ namespace RepositoryShop
         public void Update(Person item)
         {
             //   _db.Entry(item).State = EntityState.Modified;
-            Delete(item.Id);
-            Create(item);
+            //  Delete(item.Id);
+            //  Create(item);
+            _db.Persons.Remove(item);
+            _db.Persons.Add(item);
             _db.SaveChanges();
         }
 

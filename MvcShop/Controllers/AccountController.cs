@@ -134,5 +134,10 @@ namespace MvcShop.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Home", "Home");
         }
+
+        public ActionResult Manage()
+        {
+            return View();
+        }
     }
 }

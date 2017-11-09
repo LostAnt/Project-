@@ -23,12 +23,12 @@ namespace MvcShop.Controllers
         // GET: Person
         public ActionResult Index()
         {
-            if ((PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             return View(PS.GetItemList());
         }
 
         // GET: Person/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(long id)
         {
             if (id == null)
             {
@@ -45,7 +45,7 @@ namespace MvcShop.Controllers
         // GET: Person/Create
         public ActionResult Create()
         {
-            if ((PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             return View();
         }
 
@@ -66,14 +66,14 @@ namespace MvcShop.Controllers
         }
 
         // GET: Person/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(long id)
         {
 
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            if ((PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             Person person =PS.GetItem(id);
             if (person == null)
             {
@@ -99,13 +99,13 @@ namespace MvcShop.Controllers
         }
 
         // GET: Person/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            if ((PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
+            if ((!HttpContext.User.Identity.IsAuthenticated) || (PS.GetItem(HttpContext.User.Identity.Name).Role != "admin") || ((PS.GetItem(HttpContext.User.Identity.Name).Role == null))) return View("ErroreRole");
             Person person = PS.GetItem(id);
             if (person == null)
             {
@@ -117,7 +117,7 @@ namespace MvcShop.Controllers
         // POST: Person/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             PS.Delete(id);
             PS.Save();

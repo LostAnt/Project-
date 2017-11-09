@@ -1,13 +1,13 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (User.Identity.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right, main-text-style" }))
     {
         @Html.AntiForgeryToken()
 
         <ul class="nav navbar-nav navbar-right-list navbar-list">
         <li>
-            @Html.ActionLink(User.Identity.Name, " Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink(User.Identity.Name, "Index", "Basket", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
     </ul>
@@ -15,8 +15,16 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right-list navbar-list">
+    <ul class="nav navbar-nav navbar-right-list navbar-list main-text-style">
         <li>@Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
+    @if (User.Identity.Name == "1")
+    {
+    <ul class="nav navbar-nav navbar-right-list navbar-list main-text-style">
+        <li>@Html.ActionLink("Users", "Index", "Person", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Property", "Index", "Admin", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>    
+    }
+    

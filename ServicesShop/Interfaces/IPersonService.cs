@@ -11,9 +11,11 @@ namespace ServicesShop.Interfaces
     {
         IEnumerable<Person> GetItemList();
         Person GetItem(string id);
+        Person GetItem(long id);
         void Create(Person item);
         void Update(Person item);
         void Delete(string id);
+        void Delete(long id);
         void Save();
     }
 }

@@ -1,0 +1,468 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+@model string
+
+@Scripts.Render("~/Scripts/jquery-3.1.1.min.js")
+@Scripts.Render("~/Scripts/jquery.formstyler.min.js")
+@Styles.Render("~/Content/jquery.formstyler.css")
+@Styles.Render("~/Content/material.css")
+
+<style>
+    .demo-card-wide.mdl-card {
+    }
+
+    .demo-card-wide > .mdl-card__title {
+        color: #fff;
+    }
+
+    .demo-card-wide > .mdl-card__menu {
+        color: #fff;
+    }
+</style>
+
+<div class="search-filters">
+    <div class="search-filters search-filters-form search-results main-text-style">
+        <div id="wrapper">
+            @using (Ajax.BeginForm("SearchPartial", new AjaxOptions { UpdateTargetId = "results", LoadingElementId = "loading", LoadingElementDuration = 1000 }))
+            {
+                <div class="search-filters-input">
+                    <input type="text" placeholder="Enter a location" name="city" />
+                </div>
+                <div class="price-filter-bar">
+                    <select name="minPrice">
+                        <option value="0" selected="selected">Min Price</option>
+                        <option value="50000">
+                            £50,000
+                        </option>
+                        <option value="60000">
+                            £60,000
+                        </option>
+                        <option value="70000">
+                            £70,000
+                        </option>
+                        <option value="80000">
+                            £80,000
+                        </option>
+                        <option value="90000">
+                            £90,000
+                        </option>
+                        <option value="100000">
+                            £100,000
+                        </option>
+                        <option value="110000">
+                            £110,000
+                        </option>
+                        <option value="120000">
+                            £120,000
+                        </option>
+                        <option value="125000">
+                            £125,000
+                        </option>
+                        <option value="130000">
+                            £130,000
+                        </option>
+                        <option value="140000">
+                            £140,000
+                        </option>
+                        <option value="150000">
+                            £150,000
+                        </option>
+                        <option value="160000">
+                            £160,000
+                        </option>
+                        <option value="170000">
+                            £170,000
+                        </option>
+                        <option value="175000">
+                            £175,000
+                        </option>
+                        <option value="180000">
+                            £180,000
+                        </option>
+                        <option value="190000">
+                            £190,000
+                        </option>
+                        <option value="200000">
+                            £200,000
+                        </option>
+                        <option value="210000">
+                            £210,000
+                        </option>
+                        <option value="220000">
+                            £220,000
+                        </option>
+                        <option value="230000">
+                            £230,000
+                        </option>
+                        <option value="240000">
+                            £240,000
+                        </option>
+                        <option value="250000">
+                            £250,000
+                        </option>
+                        <option value="260000">
+                            £260,000
+                        </option>
+                        <option value="270000">
+                            £270,000
+                        </option>
+                        <option value="280000">
+                            £280,000
+                        </option>
+                        <option value="290000">
+                            £290,000
+                        </option>
+                        <option value="300000">
+                            £300,000
+                        </option>
+                        <option value="325000">
+                            £325,000
+                        </option>
+                        <option value="350000">
+                            £350,000
+                        </option>
+                        <option value="375000">
+                            £375,000
+                        </option>
+                        <option value="400000">
+                            £400,000
+                        </option>
+                        <option value="425000">
+                            £425,000
+                        </option>
+                        <option value="450000">
+                            £450,000
+                        </option>
+                        <option value="475000">
+                            £475,000
+                        </option>
+                        <option value="500000">
+                            £500,000
+                        </option>
+                        <option value="550000">
+                            £550,000
+                        </option>
+                        <option value="600000">
+                            £600,000
+                        </option>
+                        <option value="650000">
+                            £650,000
+                        </option>
+                        <option value="700000">
+                            £700,000
+                        </option>
+                        <option value="800000">
+                            £800,000
+                        </option>
+                        <option value="900000">
+                            £900,000
+                        </option>
+                        <option value="1000000">
+                            £1,000,000
+                        </option>
+                        <option value="1250000">
+                            £1,250,000
+                        </option>
+                        <option value="1500000">
+                            £1,500,000
+                        </option>
+                        <option value="1750000">
+                            £1,750,000
+                        </option>
+                        <option value="2000000">
+                            £2,000,000
+                        </option>
+                        <option value="2500000">
+                            £2,500,000
+                        </option>
+                        <option value="3000000">
+                            £3,000,000
+                        </option>
+                        <option value="4000000">
+                            £4,000,000
+                        </option>
+                        <option value="5000000">
+                            £5,000,000
+                        </option>
+                        <option value="7500000">
+                            £7,500,000
+                        </option>
+                        <option value="10000000">
+                            £10,000,000
+                        </option>
+                        <option value="15000000">
+                            £15,000,000
+                        </option>
+                        <option value="20000000">
+                            £20,000,000
+                        </option>
+                        <option value="">Min Price</option>
+                    </select>
+                    <p>to</p>
+                    <select name="maxPrice">
+                        <option value="20000000" selected="selected">Max Price</option>
+                        <option value="50000">
+                            £50,000
+                        </option>
+                        <option value="60000">
+                            £60,000
+                        </option>
+                        <option value="70000">
+                            £70,000
+                        </option>
+                        <option value="80000">
+                            £80,000
+                        </option>
+                        <option value="90000">
+                            £90,000
+                        </option>
+                        <option value="100000">
+                            £100,000
+                        </option>
+                        <option value="110000">
+                            £110,000
+                        </option>
+                        <option value="120000">
+                            £120,000
+                        </option>
+                        <option value="125000">
+                            £125,000
+                        </option>
+                        <option value="130000">
+                            £130,000
+                        </option>
+                        <option value="140000">
+                            £140,000
+                        </option>
+                        <option value="150000">
+                            £150,000
+                        </option>
+                        <option value="160000">
+                            £160,000
+                        </option>
+                        <option value="170000">
+                            £170,000
+                        </option>
+                        <option value="175000">
+                            £175,000
+                        </option>
+                        <option value="180000">
+                            £180,000
+                        </option>
+                        <option value="190000">
+                            £190,000
+                        </option>
+                        <option value="200000">
+                            £200,000
+                        </option>
+                        <option value="210000">
+                            £210,000
+                        </option>
+                        <option value="220000">
+                            £220,000
+                        </option>
+                        <option value="230000">
+                            £230,000
+                        </option>
+                        <option value="240000">
+                            £240,000
+                        </option>
+                        <option value="250000">
+                            £250,000
+                        </option>
+                        <option value="260000">
+                            £260,000
+                        </option>
+                        <option value="270000">
+                            £270,000
+                        </option>
+                        <option value="280000">
+                            £280,000
+                        </option>
+                        <option value="290000">
+                            £290,000
+                        </option>
+                        <option value="300000">
+                            £300,000
+                        </option>
+                        <option value="325000">
+                            £325,000
+                        </option>
+                        <option value="350000">
+                            £350,000
+                        </option>
+                        <option value="375000">
+                            £375,000
+                        </option>
+                        <option value="400000">
+                            £400,000
+                        </option>
+                        <option value="425000">
+                            £425,000
+                        </option>
+                        <option value="450000">
+                            £450,000
+                        </option>
+                        <option value="475000">
+                            £475,000
+                        </option>
+                        <option value="500000">
+                            £500,000
+                        </option>
+                        <option value="550000">
+                            £550,000
+                        </option>
+                        <option value="600000">
+                            £600,000
+                        </option>
+                        <option value="650000">
+                            £650,000
+                        </option>
+                        <option value="700000">
+                            £700,000
+                        </option>
+                        <option value="800000">
+                            £800,000
+                        </option>
+                        <option value="900000">
+                            £900,000
+                        </option>
+                        <option value="1000000">
+                            £1,000,000
+                        </option>
+                        <option value="1250000">
+                            £1,250,000
+                        </option>
+                        <option value="1500000">
+                            £1,500,000
+                        </option>
+                        <option value="1750000">
+                            £1,750,000
+                        </option>
+                        <option value="2000000">
+                            £2,000,000
+                        </option>
+                        <option value="2500000">
+                            £2,500,000
+                        </option>
+                        <option value="3000000">
+                            £3,000,000
+                        </option>
+                        <option value="4000000">
+                            £4,000,000
+                        </option>
+                        <option value="5000000">
+                            £5,000,000
+                        </option>
+                        <option value="7500000">
+                            £7,500,000
+                        </option>
+                        <option value="10000000">
+                            £10,000,000
+                        </option>
+                        <option value="15000000">
+                            £15,000,000
+                        </option>
+                        <option value="20000000">
+                            £20,000,000
+                        </option>
+                        <option value="">Max Price</option>
+                    </select>
+                </div>
+
+                <div class="price-filter-bar">
+                    <select class="" name="minBeds">
+                        <option value="0" selected="selected">Min Beds</option>
+                        <option value="0">
+                            Studio
+                        </option>
+                        <option value="1">
+                            1 Bed
+                        </option>
+                        <option value="2">
+                            2 Bed
+                        </option>
+                        <option value="3">
+                            3 Bed
+                        </option>
+                        <option value="4">
+                            4 Bed
+                        </option>
+                        <option value="5">
+                            5 Bed
+                        </option>
+                        <option value="6">
+                            6 Bed
+                        </option>
+                        <option value="7">
+                            7 Bed
+                        </option>
+                        <option value="8">
+                            8 Bed
+                        </option>
+                        <option value="9">
+                            9 Bed
+                        </option>
+                        <option value="10">
+                            10 Bed
+                        </option>
+                        <option value="">Min Beds</option>
+                    </select>
+                    <p>to</p>
+                    <select class="" name="maxBeds">
+                        <option value="10" selected="selected">Max Beds</option>
+                        <option value="0">
+                            Studio
+                        </option>
+                        <option value="1">
+                            1 Bed
+                        </option>
+                        <option value="2">
+                            2 Bed
+                        </option>
+                        <option value="3">
+                            3 Bed
+                        </option>
+                        <option value="4">
+                            4 Bed
+                        </option>
+                        <option value="5">
+                            5 Bed
+                        </option>
+                        <option value="6">
+                            6 Bed
+                        </option>
+                        <option value="7">
+                            7 Bed
+                        </option>
+                        <option value="8">
+                            8 Bed
+                        </option>
+                        <option value="9">
+                            9 Bed
+                        </option>
+                        <option value="10">
+                            10 Bed
+                        </option>
+                        <option value="">Max Beds</option>
+                    </select>
+                </div>
+
+                <div class="search-button-block">
+                    <button type="submit" class="search-button">Поиск</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div id="loading" style="display: none; color: Red; font-weight: bold;">
+    <p>Идет загрузка...</p>
+</div>
+
+<div id="results">
+    @Html.Action("SearchPartial", new { city = Model })
+</div>
+
+
